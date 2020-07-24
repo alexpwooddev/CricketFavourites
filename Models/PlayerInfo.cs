@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -7,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace CricketFavourites.Models
 {
+    public class PlayerInfo
+    {
+        public Root Root { get; set; }
+    }
+    
     public class Root
     {
         public int pid { get; set; }
@@ -74,11 +80,11 @@ namespace CricketFavourites.Models
 
     public class ListA
     {
-        [DataMember(Name = "10")]
+        [JsonProperty("10")]
         public string ten { get; set; }
-        [DataMember(Name = "5w")]
+        [JsonProperty("5w")]
         public string fiveW { get; set; }
-        [DataMember(Name = "4w")]
+        [JsonProperty("4w")]
         public string fourW { get; set; }
         public string SR { get; set; }
         public string Econ { get; set; }
@@ -95,11 +101,11 @@ namespace CricketFavourites.Models
 
     public class FirstClass
     {
-        [DataMember(Name = "10")]
+        [JsonProperty("10")]
         public string ten { get; set; }
-        [DataMember(Name = "5w")]
+        [JsonProperty("5w")]
         public string fiveW { get; set; }
-        [DataMember(Name = "4w")]
+        [JsonProperty("4w")]
         public string SR { get; set; }
         public string Econ { get; set; }
         public string Ave { get; set; }
@@ -115,11 +121,11 @@ namespace CricketFavourites.Models
 
     public class T20Is
     {
-        [DataMember(Name = "10")]
+        [JsonProperty("10")]
         public string ten { get; set; }
-        [DataMember(Name = "5w")]
+        [JsonProperty("5w")]
         public string fiveW { get; set; }
-        [DataMember(Name = "4w")]
+        [JsonProperty("4w")]
         public string SR { get; set; }
         public string Econ { get; set; }
         public string Ave { get; set; }
@@ -135,11 +141,11 @@ namespace CricketFavourites.Models
 
     public class ODIs
     {
-        [DataMember(Name = "10")]
+        [JsonProperty("10")]
         public string ten { get; set; }
-        [DataMember(Name = "5w")]
+        [JsonProperty("5w")]
         public string fiveW { get; set; }
-        [DataMember(Name = "4w")]
+        [JsonProperty("4w")]
         public string SR { get; set; }
         public string Econ { get; set; }
         public string Ave { get; set; }
@@ -155,11 +161,11 @@ namespace CricketFavourites.Models
 
     public class Tests
     {
-        [DataMember(Name = "10")]
+        [JsonProperty("10")]
         public string ten { get; set; }
-        [DataMember(Name = "5w")]
+        [JsonProperty("5w")]
         public string fiveW { get; set; }
-        [DataMember(Name = "4w")]
+        [JsonProperty("4w")]
         public string SR { get; set; }
         public string Econ { get; set; }
         public string Ave { get; set; }
@@ -177,15 +183,15 @@ namespace CricketFavourites.Models
 
     public class ListA2
     {
-        [DataMember(Name = "50")]
+        [JsonProperty("50")]
         public string fifty { get; set; }
-        [DataMember(Name = "100")]
+        [JsonProperty("100")]
         public string oneHundred { get; set; }
         public string St { get; set; }
         public string Ct { get; set; }
-        [DataMember(Name = "6s")]
+        [JsonProperty("6s")]
         public string sixes { get; set; }
-        [DataMember(Name = "4s")]
+        [JsonProperty("4s")]
         public string fours { get; set; }
         public string SR { get; set; }
         public string BF { get; set; }
@@ -200,15 +206,15 @@ namespace CricketFavourites.Models
 
     public class FirstClass2
     {
-        [DataMember(Name = "50")]
+        [JsonProperty("50")]
         public string fifty { get; set; }
-        [DataMember(Name = "100")]
+        [JsonProperty("100")]
         public string oneHundred { get; set; }
         public string St { get; set; }
         public string Ct { get; set; }
-        [DataMember(Name = "6s")]
+        [JsonProperty("6s")]
         public string sixes { get; set; }
-        [DataMember(Name = "4s")]
+        [JsonProperty("4s")]
         public string fours { get; set; }
         public string SR { get; set; }
         public string BF { get; set; }
@@ -223,15 +229,15 @@ namespace CricketFavourites.Models
 
     public class T20Is2
     {
-        [DataMember(Name = "50")]
+        [JsonProperty("50")]
         public string fifty { get; set; }
-        [DataMember(Name = "100")]
+        [JsonProperty("100")]
         public string oneHundred { get; set; }
         public string St { get; set; }
         public string Ct { get; set; }
-        [DataMember(Name = "6s")]
+        [JsonProperty("6s")]
         public string sixes { get; set; }
-        [DataMember(Name = "4s")]
+        [JsonProperty("4s")]
         public string fours { get; set; }
         public string SR { get; set; }
         public string BF { get; set; }
@@ -246,15 +252,15 @@ namespace CricketFavourites.Models
 
     public class ODIs2
     {
-        [DataMember(Name = "50")]
+        [JsonProperty("50")]
         public string fifty { get; set; }
-        [DataMember(Name = "100")]
+        [JsonProperty("100")]
         public string oneHundred { get; set; }
         public string St { get; set; }
         public string Ct { get; set; }
-        [DataMember(Name = "6s")]
+        [JsonProperty("6s")]
         public string sixes { get; set; }
-        [DataMember(Name = "4s")]
+        [JsonProperty("4s")]
         public string fours { get; set; }
         public string SR { get; set; }
         public string BF { get; set; }
@@ -269,15 +275,15 @@ namespace CricketFavourites.Models
 
     public class Tests2
     {
-        [DataMember(Name = "50")]
+        [JsonProperty("50")]
         public string fifty { get; set; }
-        [DataMember(Name = "100")]
+        [JsonProperty("100")]
         public string oneHundred { get; set; }
         public string St { get; set; }
         public string Ct { get; set; }
-        [DataMember(Name = "6s")]
+        [JsonProperty("6s")]
         public string sixes { get; set; }
-        [DataMember(Name = "4s")]
+        [JsonProperty("4s")]
         public string fours { get; set; }
         public string SR { get; set; }
         public string BF { get; set; }
