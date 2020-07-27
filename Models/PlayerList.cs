@@ -10,15 +10,6 @@ namespace CricketFavourites.Models
     public class PlayerList
     {
         public List<Player> data { get; set; }
-        //[JsonIgnore]
-        //public int ttl { get; set; }
-        //[JsonIgnore]
-        //public bool cache3 { get; set; }
-        //[JsonIgnore]
-        //public string v { get; set; }
-        //[JsonIgnore]
-        //public int creditsLeft { get; set; }
-
     }
 
 

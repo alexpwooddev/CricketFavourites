@@ -1,0 +1,10 @@
+﻿@model NewsItems
+
+<p>News stories: @Model.totalEstimatedMatches</p>
+
+@foreach(var item in Model.value)
+{
+    <h3>@item.name</h3>
+    <p>@item.description</p>
+    <p><a href="@item.url">@item.url</a></p>
+}

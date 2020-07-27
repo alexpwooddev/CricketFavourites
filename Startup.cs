@@ -12,6 +12,7 @@ using CricketFavourites.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CricketFavourites.Data.Repositories;
 
 namespace CricketFavourites
 {
@@ -34,6 +35,10 @@ namespace CricketFavourites
                 .AddEntityFrameworkStores<Data.DbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddScoped<ICricApiRepository, CricApiRepository>();
+            services.AddScoped<INewsApiRepository, NewsApiRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

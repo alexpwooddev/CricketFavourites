@@ -10,11 +10,6 @@ namespace CricketFavourites.Models
 {
     public class PlayerInfo
     {
-        public Root Root { get; set; }
-    }
-    
-    public class Root
-    {
         public int pid { get; set; }
         public string profile { get; set; }
         public string imageURL { get; set; }
@@ -27,13 +22,9 @@ namespace CricketFavourites.Models
         public string name { get; set; }
         public string country { get; set; }
         public string playingRole { get; set; }
-        public string v { get; set; }
         public Data data { get; set; }
-        public int ttl { get; set; }
-        public Provider provider { get; set; }
-        public int creditsLeft { get; set; }
-
     }
+    
 
 
     public class Data
@@ -64,17 +55,6 @@ namespace CricketFavourites.Models
     }
 
    
-
-    public class Provider
-    {
-        public string source { get; set; }
-        public string url { get; set; }
-        public DateTime pubDate { get; set; }
-
-    }
-
-   
-
 
 
 

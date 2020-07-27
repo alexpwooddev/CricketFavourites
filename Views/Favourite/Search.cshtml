@@ -1,7 +1,37 @@
-﻿@model PlayerList
+﻿@model SearchViewModel
+
+<form asp-action="search" method="post">
+    <div class="form-group">
+        <div class="input">
+            <input type="search" name="query" class="form-control" />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
 
 
-@foreach (var player in Model.data)
+
+@if (Model != null && Model.PlayerInfo == null)
 {
-    <p>@player.fullName</p>
+    foreach (var player in Model.PlayerList.data)
+    {
+        <a asp-action="Search" asp-route-pid="@player.pid"><p>@player.fullName</p></a>
+    }
 }
+
+@if (Model != null && Model.PlayerInfo != null)
+{
+    <h3>@Model.PlayerInfo.fullName</h3>
+    <p><strong>Age:</strong> @Model.PlayerInfo.currentAge <br />  <strong>Batting style:</strong> @Model.PlayerInfo.battingStyle <br /> 
+    <strong>Bowling style:</strong> @Model.PlayerInfo.bowlingStyle </p>
+    <p>@Model.PlayerInfo.profile</p>
+    <img src= @Model.PlayerInfo.imageURL />
+    <p>Favourite this player to check out his detailed stats and get the latest news about them!</p>
+}
+
+
+

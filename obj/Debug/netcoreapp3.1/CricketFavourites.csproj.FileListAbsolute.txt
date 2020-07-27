@@ -82,12 +82,14 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\C
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.pdb
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.genruntimeconfig.cache
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\List.cshtml.g.cs
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\News\Search.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\Index.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\Privacy.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NewsItem.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_FavouritePlayer.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Search.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\PlayerInfo.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.csproj.CoreCompileInputs.cache
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Search.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\News\ShowNews.cshtml.g.cs

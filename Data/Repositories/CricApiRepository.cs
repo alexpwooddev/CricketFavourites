@@ -1,4 +1,6 @@
-﻿using CricketFavourites.Models;
+﻿using CricketFavourites.Data.Repositories;
+using CricketFavourites.Models;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,14 +11,23 @@ using System.Threading.Tasks;
 
 namespace CricketFavourites.Data
 {
-    public class CricApiHelper
+    public class CricApiRepository : ICricApiRepository
     {
+
+        public string API_KEY = null;
         public const string BASE_URL = "https://cricapi.com/api/";
-        public const string API_KEY = "?apikey=NbfhBv24s7REWqDADZzeRvGvsAF2";
         public const string PLAYER_SEARCH_ENDPOINT = "playerFinder{0}&name={1}";
         public const string PLAYER_ENDPOINT = "playerStats{0}&pid={1}";
 
-        public static async Task<PlayerList> GetPlayers(string query)
+        public CricApiRepository(IConfiguration config)
+        {
+            API_KEY = $"?apikey={config["CricApi:ApiKey"]}";
+        }
+        
+
+
+
+        public async Task<PlayerList> GetPlayers(string query)
         {
             PlayerList players = new PlayerList();
 
@@ -34,7 +45,8 @@ namespace CricketFavourites.Data
             return players;
         }
 
-        public static async Task<PlayerInfo> GetPlayerInfo (int pid)
+        public async Task<PlayerInfo> GetPlayerInfo (int pid)
+        
         {
             PlayerInfo player = new PlayerInfo();
 
@@ -46,7 +58,7 @@ namespace CricketFavourites.Data
 
                 string json = await response.Content.ReadAsStringAsync();
 
-                player = JsonConvert.DeserializeObject<List<PlayerInfo>>(json).FirstOrDefault();
+                player = JsonConvert.DeserializeObject<PlayerInfo>(json);
             }
 
             return player;
