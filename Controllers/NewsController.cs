@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using CricketFavourites.Data.Repositories;
 using CricketFavourites.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CricketFavourites.Controllers
 {
+    [Authorize]
     public class NewsController : Controller
     {
         private readonly INewsApiRepository _newsApiRepository;

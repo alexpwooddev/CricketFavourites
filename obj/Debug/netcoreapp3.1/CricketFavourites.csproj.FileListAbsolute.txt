@@ -57,7 +57,6 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\bin\Debug\netcoreapp3.1\r
 C:\Users\Alexander Wood\source\repos\CricketFavourites\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Alexander Wood\source\repos\CricketFavourites\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Alexander Wood\source\repos\CricketFavourites\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.csprojAssemblyReference.cache
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.AssemblyInfoInputs.cache
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.AssemblyInfo.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.RazorAssemblyInfo.cache
@@ -82,8 +81,6 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\C
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.pdb
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.genruntimeconfig.cache
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\List.cshtml.g.cs
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\Index.cshtml.g.cs
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\Privacy.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NewsItem.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_FavouritePlayer.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Search.cshtml.g.cs
@@ -93,3 +90,7 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\C
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Alexander Wood\source\repos\CricketFavourites\bin\Debug\netcoreapp3.1\RestSharp.dll
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\News\ShowNews.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\About.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\Contact.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Compare.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.csprojAssemblyReference.cache

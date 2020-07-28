@@ -13,6 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CricketFavourites.Data.Repositories;
+using CricketFavourites.Areas.Identity.Data;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Http;
 
 namespace CricketFavourites
 {
@@ -31,13 +34,15 @@ namespace CricketFavourites
             services.AddDbContext<Data.DbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("CricketFavouritesConnex")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<Data.DbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
             services.AddScoped<ICricApiRepository, CricApiRepository>();
             services.AddScoped<INewsApiRepository, NewsApiRepository>();
+            services.AddScoped<IFavouriteRepository, FavouriteRepository>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         }
 
@@ -67,7 +72,7 @@ namespace CricketFavourites
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Favourite}/{action=List}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

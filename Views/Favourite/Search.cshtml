@@ -31,6 +31,12 @@
     <p>@Model.PlayerInfo.profile</p>
     <img src= @Model.PlayerInfo.imageURL />
     <p>Favourite this player to check out his detailed stats and get the latest news about them!</p>
+    <p class="btn">
+        <a class="btn btn-primary"
+           asp-action="AddFavouritePlayer"
+           asp-route-pid="@Model.PlayerInfo.pid"
+           asp-route-fullName="@Model.PlayerInfo.fullName">Favourite this player</a>
+    </p>
 }
 
 
