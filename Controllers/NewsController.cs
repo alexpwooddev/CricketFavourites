@@ -24,13 +24,25 @@ namespace CricketFavourites.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ShowNews()
+        public async Task<IActionResult> ShowNews(string name)
         {
-            string query = "Steve Waugh";
+            //if not routed with a specific player then just show news from mix of favourites
+            if (name == null)
+            {
+                var newsItems = await _newsApiRepository.GetNews(name);
 
-            var newsItems = await _newsApiRepository.GetNews(query);
+                return View(newsItems);
+            }
 
-            return View(newsItems);
+            else
+            {
+                var newsItems = await _newsApiRepository.GetNews(name);
+
+                return View(newsItems);
+            }
+            
+
+            
         }
     }
 }

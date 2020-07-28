@@ -9,10 +9,11 @@ namespace CricketFavourites.Data.Repositories
 {
     public interface IFavouriteRepository
     {
-        void AddFavourite(IServiceProvider services, Favourite favourite);
+        IEnumerable<Favourite> AllFavourites { get; }
+        List<Favourite> GetCurrentUserFavourites();
+        void AddFavourite(Favourite favourite);
         Favourite GetFavouriteByName(string fullName);
         Favourite GetFavouriteByPid(int pid);
-
 
     }
 }

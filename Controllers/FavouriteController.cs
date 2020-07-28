@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using CricketFavourites.Data;
 using CricketFavourites.Data.Repositories;
 using CricketFavourites.Models;
 using CricketFavourites.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CricketFavourites.Controllers
 {
@@ -26,9 +29,25 @@ namespace CricketFavourites.Controllers
             _services = services;
         }
 
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
-            return View();
+            //get all favourite objects for current user
+            var currentFavourites = _favouriteRepository.GetCurrentUserFavourites();
+
+            List<PlayerInfo> currentFavouriteInfoList = new List<PlayerInfo>();
+            PlayerInfo currentFavouriteInfo = new PlayerInfo();
+
+            //get new data on each favourite from the API and add to list
+            foreach (var f in currentFavourites)
+            {
+                currentFavouriteInfo = await _cricApiRepository.GetPlayerInfo(f.Pid);
+                currentFavouriteInfoList.Add(currentFavouriteInfo);
+            }
+
+            return View(new FavouritesViewModel 
+            { 
+                FavouritesInfo = currentFavouriteInfoList
+            });      
         }
 
 
@@ -70,7 +89,7 @@ namespace CricketFavourites.Controllers
                 Pid = pid
             };
 
-            _favouriteRepository.AddFavourite(_services, favourite);
+            _favouriteRepository.AddFavourite(favourite);
 
             return RedirectToAction("List");
         }

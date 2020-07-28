@@ -15,20 +15,35 @@ namespace CricketFavourites.Data.Repositories
     public class FavouriteRepository : IFavouriteRepository
     {
         private readonly DbContext _dbContext;
+        private readonly IServiceProvider _serviceProvider;
 
-        public FavouriteRepository(DbContext dbContext)
+        public FavouriteRepository(DbContext dbContext, IServiceProvider serviceProvider)
         {
             _dbContext = dbContext;
+            _serviceProvider = serviceProvider;
         }
 
-        //public IEnumerable<Favourite> AllUserFavourites
-        //{
-
-        //}
-
-        public void AddFavourite(IServiceProvider services, Favourite favourite)
+        public IEnumerable<Favourite> AllFavourites
         {
-            var userId = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            get
+            {
+                return _dbContext.Favourites.Include(f => f.ApplicationUserFavorites);
+            }
+        }
+
+        public List<Favourite> GetCurrentUserFavourites()
+        {
+            var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var applicationUser = _dbContext.Users.Include(u => u.ApplicationUserFavourites).FirstOrDefault(u => u.Id == userId);
+
+            return _dbContext.Favourites.FromSqlInterpolated
+                ($"SELECT * FROM favourites f JOIN ApplicationUserFavourite auf ON f.Id = auf.FavouriteId WHERE auf.ApplicationUserId = {userId}").ToList();
+
+        }
+
+        public void AddFavourite(Favourite favourite)
+        {
+            var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             //int userIdInt = Int32.Parse(userId);
 
