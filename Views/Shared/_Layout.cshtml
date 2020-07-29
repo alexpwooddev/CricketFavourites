@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark  border-bottom box-shadow mb-3" style="background-color: #EE4C7C;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Favourite" asp-action="List">CricketFavourites</a>
+                <a class="navbar-brand text-nowrap" asp-area="" asp-controller="Favourite" asp-action="List">Cricket Favourites</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,13 +21,13 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="ShowNews">News</a>
+                            <a class="nav-link" asp-area="" asp-controller="News" asp-action="ShowNews">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Favourite" asp-action="Compare">Compare</a>
+                            <a class="nav-link" asp-area="" asp-controller="Favourite" asp-action="Compare">Compare</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Favourite" asp-action="Search">Player Search</a>
+                            <a class="nav-link" asp-area="" asp-controller="Favourite" asp-action="Search">Player Search</a>
                         </li>
                     </ul>
                 </div>

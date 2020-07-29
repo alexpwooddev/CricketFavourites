@@ -5,16 +5,18 @@
 <p class="text-danger">TO DO: add dropdown to select just one favourited player's news results</p>
 <p class="text-danger">TO DO: setup routing with player name from user home page</p>
 
+<h1>Recent News Stories</h1>
 
 @if (Model != null)
 {
     <p>News stories: @Model.totalEstimatedMatches</p>
-
+    <hr />
     @foreach (var item in Model.value)
     {
-        <h3>@item.name</h3>
+        <h2>@item.name</h2>
         <p>@item.description</p>
         <p><a href="@item.url">@item.url</a></p>
+        <hr />
     }
 }
 
