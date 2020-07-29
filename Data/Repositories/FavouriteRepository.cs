@@ -34,11 +34,9 @@ namespace CricketFavourites.Data.Repositories
         public List<Favourite> GetCurrentUserFavourites()
         {
             var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //var applicationUser = _dbContext.Users.Include(u => u.ApplicationUserFavourites).FirstOrDefault(u => u.Id == userId);
-
+     
             return _dbContext.Favourites.FromSqlInterpolated
-                ($"SELECT * FROM favourites f JOIN ApplicationUserFavourite auf ON f.Id = auf.FavouriteId WHERE auf.ApplicationUserId = {userId}").ToList();
-
+                ($"SELECT * FROM favourites f JOIN ApplicationUserFavourites auf ON f.Id = auf.FavouriteId WHERE auf.ApplicationUserId = {userId}").ToList();
         }
 
         public void AddFavourite(Favourite favourite)
@@ -77,8 +75,20 @@ namespace CricketFavourites.Data.Repositories
             }
 
             _dbContext.SaveChanges();
+        }
 
+        public void RemoveFavourite(int pid)
+        {
+            var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            //get relevant favouriteId
+            var favouriteId = _dbContext.Favourites.FirstOrDefault(f => f.Pid == pid).Id;
+
+            //get the join entity based on the UserId and favouriteId
+            var applicationUserFavourite = _dbContext.ApplicationUserFavourites.First(row => row.ApplicationUserId == userId && row.FavouriteId == favouriteId);
+
+            _dbContext.Remove(applicationUserFavourite);
+            _dbContext.SaveChanges();
         }
 
 

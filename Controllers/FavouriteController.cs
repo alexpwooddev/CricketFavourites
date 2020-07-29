@@ -81,15 +81,23 @@ namespace CricketFavourites.Controllers
             }
         }
 
-        public IActionResult AddFavouritePlayer(string fullName, int pid)
+        public IActionResult AddFavouritePlayer(string fullName, string name, int pid)
         {
             Favourite favourite = new Favourite
             {
                 FullName = fullName,
+                Name = name,
                 Pid = pid
             };
 
             _favouriteRepository.AddFavourite(favourite);
+
+            return RedirectToAction("List");
+        }
+
+        public IActionResult Unfavourite(int pid)
+        {
+            _favouriteRepository.RemoveFavourite(pid);
 
             return RedirectToAction("List");
         }

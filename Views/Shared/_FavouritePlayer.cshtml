@@ -12,8 +12,13 @@
         <p class="btn">
             <a class="btn btn-primary"
                asp-controller="News"
-               asp-action="ShowNews"
+               asp-action="NewsForSelectedPlayer"
                asp-route-name="@Model.name">View news</a>
+        </p>
+        <p class="btn">
+            <a class="btn btn-danger"
+               asp-action="Unfavourite"
+               asp-route-pid="@Model.pid">Unfavourite</a>
         </p>
     </div>
 </div>

@@ -13,36 +13,36 @@ namespace CricketFavourites.Controllers
     public class NewsController : Controller
     {
         private readonly INewsApiRepository _newsApiRepository;
+        private readonly IFavouriteRepository _favouriteRepository;
 
-        public NewsController(INewsApiRepository newsApiRepository)
+        public NewsController(INewsApiRepository newsApiRepository, IFavouriteRepository favouriteRepository)
         {
             _newsApiRepository = newsApiRepository;
+            _favouriteRepository = favouriteRepository;
         }
-        
-        public IActionResult Index()
+
+        public IActionResult DefaultNewsList()
         {
+            //get names for 3 of user's favourites
+            var currentUserFavourites = _favouriteRepository.GetCurrentUserFavourites();
+
+            List<string> currentFavouritePlayerNames = new List<string>();
+
+            foreach (Favourite fav in currentUserFavourites)
+            {
+                currentFavouritePlayerNames.Add(fav.Name);
+            }
+            ////////TO DOOOO/////
+            
+            
             return View();
         }
 
-        public async Task<IActionResult> ShowNews(string name)
+        public async Task<IActionResult> NewsForSelectedPlayer(string name)
         {
-            //if not routed with a specific player then just show news from mix of favourites
-            if (name == null)
-            {
-                var newsItems = await _newsApiRepository.GetNews(name);
+            var newsItems = await _newsApiRepository.GetNews(name);
 
-                return View(newsItems);
-            }
-
-            else
-            {
-                var newsItems = await _newsApiRepository.GetNews(name);
-
-                return View(newsItems);
-            }
-            
-
-            
+            return View(newsItems);
         }
     }
 }

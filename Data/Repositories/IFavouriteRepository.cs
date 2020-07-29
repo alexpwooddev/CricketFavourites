@@ -12,6 +12,8 @@ namespace CricketFavourites.Data.Repositories
         IEnumerable<Favourite> AllFavourites { get; }
         List<Favourite> GetCurrentUserFavourites();
         void AddFavourite(Favourite favourite);
+        void RemoveFavourite(int pid);
+
         Favourite GetFavouriteByName(string fullName);
         Favourite GetFavouriteByPid(int pid);
 
