@@ -1,0 +1,35 @@
+﻿@model NewsItems
+<br />
+@if (TempData.ContainsKey("newsPageTitle"))
+{
+    <h1>@TempData["newsPageTitle"]</h1>
+}
+else
+{
+    @if (Model != null)
+    {
+        <h1>Recent News Stories</h1>
+    }
+    else
+    {
+        <h1>There's no recent news for your favourite player/s</h1>
+    }
+}
+
+
+@if (Model != null)
+{
+    <h4>Or view news for another player:</h4>@await Component.InvokeAsync("FavouritesDropDownMenu")
+    <br />
+
+    <hr />
+    @foreach (var item in Model.items)
+    {
+        <h2>@item.name</h2>
+        <p>@item.description</p>
+        <p><a href="@item.url">@item.url</a></p>
+        <hr />
+    }
+}
+
+

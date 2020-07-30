@@ -9,6 +9,6 @@ namespace CricketFavourites.Data.Repositories
 {
     public interface INewsApiRepository
     {
-        Task<NewsItems> GetNews(string query);
+        NewsItems GetNews(string query);
     }
 }

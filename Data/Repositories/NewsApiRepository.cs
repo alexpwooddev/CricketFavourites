@@ -27,7 +27,7 @@ namespace CricketFavourites.Data
             API_KEY = config["BingNewsSearchApi:ApiKey"];
         }
 
-        public async Task<NewsItems> GetNews(string query)
+        public NewsItems GetNews(string query)
         {
             NewsItems newsItems = new NewsItems();
 

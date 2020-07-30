@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,12 @@ namespace CricketFavourites.Models
         public string _type { get; set; }
         public string readLink { get; set; }
         public int totalEstimatedMatches { get; set; }
-        public List<Value> value { get; set; }
+        
+        [JsonProperty("value")]
+        public List<Item> items { get; set; }
     }
 
-    public class Value
+    public class Item
     {
         public string _type { get; set; }
         public string name { get; set; }

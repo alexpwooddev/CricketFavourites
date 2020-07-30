@@ -1,0 +1,19 @@
+﻿@model List<Favourite>
+
+<div class="dropdown">
+    <button class="btn btn-danger dropdown-toggle" 
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Select a player</button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        @foreach (Favourite fav in Model)
+        {
+            <a class="dropdown-item" 
+               asp-controller="News"
+               asp-action="NewsForSelectedPlayer"
+               asp-route-name="@fav.Name">@fav.Name</a>
+        }
+    </div>
+</div>
