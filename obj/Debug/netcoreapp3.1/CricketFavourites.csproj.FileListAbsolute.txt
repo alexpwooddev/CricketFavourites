@@ -94,3 +94,5 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\R
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Compare.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\News\NewsList.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\FavouritesDropDownMenu\Default.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.csprojAssemblyReference.cache
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\ShowPlayerStats.cshtml.g.cs

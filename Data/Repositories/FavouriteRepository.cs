@@ -43,17 +43,15 @@ namespace CricketFavourites.Data.Repositories
         {
             var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            //int userIdInt = Int32.Parse(userId);
-
             //if the favourite already exists in the DB then make the connection between it and the user (assuming it's not already favourited)
             if (_dbContext.Favourites.Where(f => f.Pid == favourite.Pid).Count() > 0)
             {
-                var applicationUser = _dbContext.Users.Include(u => u.ApplicationUserFavourites).FirstOrDefault(u => u.Id == userId);
+                var applicationUser = _dbContext.Users.Include(u => u.ApplicationUserFavourites).ThenInclude(row => row.Favourite).FirstOrDefault(u => u.Id == userId);
 
                 var fav = _dbContext.Favourites.FirstOrDefault(f => f.Pid == favourite.Pid);
 
                 //if user doesn't have this favourite then add it
-                if (applicationUser.ApplicationUserFavourites.FirstOrDefault(a => a.ApplicationUserId == userId && a.FavouriteId == favourite.Id) == null)
+                if (applicationUser.ApplicationUserFavourites.FirstOrDefault(a => a.ApplicationUserId == userId && a.Favourite.Pid == favourite.Pid) == null)
                 {
                     var ufJoin = new ApplicationUserFavourite { ApplicationUserId = userId, FavouriteId = fav.Id };
 

@@ -1,0 +1,276 @@
+﻿@model PlayerInfo
+
+<h1>@Model.name's Stats</h1>
+
+<h4>Bowling</h4>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col" style="width:25%"> </th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <th scope="col" style="width:25%">Tests</th>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <th scope="col" style="width:25%">ODIs</th>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <th scope="col" style="width:25%">T20 Int.</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Ten wicket hauls</th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <td>@Model.data.bowling.tests.ten</td>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <td>@Model.data.bowling.ODIs.ten</td>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <td>@Model.data.bowling.T20Is.ten</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Five wicket hauls</th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <td>@Model.data.bowling.tests.fiveW</td>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <td>@Model.data.bowling.ODIs.fiveW</td>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <td>@Model.data.bowling.T20Is.fiveW</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">S/R</th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <td>@Model.data.bowling.tests.SR</td>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <td>@Model.data.bowling.ODIs.SR</td>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <td>@Model.data.bowling.T20Is.SR</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Econ.</th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <td>@Model.data.bowling.tests.Econ</td>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <td>@Model.data.bowling.ODIs.Econ</td>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <td>@Model.data.bowling.T20Is.Econ</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Avg.</th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <td>@Model.data.bowling.tests.Ave</td>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <td>@Model.data.bowling.ODIs.Ave</td>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <td>@Model.data.bowling.T20Is.Ave</td>
+            }>
+        <tr>
+            <th scope="row">Wickets</th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <td>@Model.data.bowling.tests.Wkts</td>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <td>@Model.data.bowling.ODIs.Wkts</td>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <td>@Model.data.bowling.T20Is.Wkts</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Matches</th>
+            @if (Model.data.bowling.tests != null)
+            {
+                <td>@Model.data.bowling.tests.Mat</td>
+            }
+            @if (Model.data.bowling.ODIs != null)
+            {
+                <td>@Model.data.bowling.ODIs.Mat</td>
+            }
+            @if (Model.data.bowling.T20Is != null)
+            {
+                <td>@Model.data.bowling.T20Is.Mat</td>
+            }
+        </tr>
+    </tbody>
+</table>
+
+
+<h4>Batting</h4>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col" style="width:25%"> </th>
+            @if (Model.data.batting.tests != null)
+            {
+                <th scope="col" style="width:25%">Tests</th>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <th scope="col" style="width:25%">ODIs</th>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <th scope="col" style="width:25%">T20 Int.</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">50s</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.fifty</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.fifty</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.fifty</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">100s</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.oneHundred</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.oneHundred</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.oneHundred</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Avg.</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.Ave</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.Ave</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.Ave</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">S/R</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.SR</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.SR</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.SR</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">High Score</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.HS</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.HS</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.HS</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Runs</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.Runs</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.Runs</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.Runs</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Innings</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.Inns</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.Inns</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.Inns</td>
+            }
+        </tr>
+        <tr>
+            <th scope="row">Matches</th>
+            @if (Model.data.batting.tests != null)
+            {
+                <td>@Model.data.batting.tests.Mat</td>
+            }
+            @if (Model.data.batting.ODIs != null)
+            {
+                <td>@Model.data.batting.ODIs.Mat</td>
+            }
+            @if (Model.data.batting.T20Is != null)
+            {
+                <td>@Model.data.batting.T20Is.Mat</td>
+            }
+        </tr>
+    </tbody>
+</table>
+
+

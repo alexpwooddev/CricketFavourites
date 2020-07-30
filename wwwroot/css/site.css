@@ -155,3 +155,7 @@ p {
         color: #fff;
         background-color: #AC3B61;
     }
+
+.table-dark {
+    background-color: #123C69;
+}

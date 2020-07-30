@@ -103,19 +103,19 @@ namespace CricketFavourites.Controllers
         }
 
 
-        public async Task<IActionResult> Compare()
+        public async Task<IActionResult> ShowPlayerStats(int pid)
+        {
+            PlayerInfo selectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid);
+
+            return View(selectedPlayerInfo);
+        }
+
+
+        public IActionResult Compare()
         {
             return View();
         }
 
-        //public async Task<IActionResult> PlayerInfo(int pid)
-        //{
-        //    PlayerInfo selectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid);
-
-        //    return View(new SearchViewModel
-        //    {
-        //        PlayerInfo = selectedPlayerInfo
-        //    });
-        //}
+    
     }
 }

@@ -17,6 +17,8 @@
 
 @if (Model != null && Model.PlayerInfo == null)
 {
+    <h4>Who were you looking for? (select a player below)</h4>
+    <br />
     foreach (var player in Model.PlayerList.data)
     {
         <a asp-action="Search" asp-route-pid="@player.pid"><p>@player.fullName</p></a>
