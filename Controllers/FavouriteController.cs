@@ -21,7 +21,7 @@ namespace CricketFavourites.Controllers
         private readonly IFavouriteRepository _favouriteRepository;
         private readonly IServiceProvider _services;
 
-        public FavouriteController(ICricApiRepository cricApiRepository, IFavouriteRepository favouriteRepository, 
+        public FavouriteController(ICricApiRepository cricApiRepository, IFavouriteRepository favouriteRepository,
             IServiceProvider services)
         {
             _cricApiRepository = cricApiRepository;
@@ -44,10 +44,10 @@ namespace CricketFavourites.Controllers
                 currentFavouriteInfoList.Add(currentFavouriteInfo);
             }
 
-            return View(new FavouritesViewModel 
-            { 
+            return View(new FavouritesViewModel
+            {
                 FavouritesInfo = currentFavouriteInfoList
-            });      
+            });
         }
 
 
@@ -120,8 +120,8 @@ namespace CricketFavourites.Controllers
                 return View();
             }
 
-            //has just chosen player 1 for first time - no player 2 selection has been made
-            else if (pid1 != 0 && pid2 == 0 && !TempData.ContainsKey("pid2Chosen"))
+            //has just chosen player 1 - no player 2 selection has been made
+            else if (pid1 != 0 && pid2 == 0 && (!TempData.ContainsKey("pid2Chosen") || TempData["pid2Chosen"].ToString() == "no"))
             {
                 PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
                 PlayerInfo secondSelectedPlayerInfo = new PlayerInfo();
@@ -137,16 +137,16 @@ namespace CricketFavourites.Controllers
                 return View(combinedPlayerInfo);
             }
 
-            //has just chosen player 2 for first time - no player 1 selection has been made
-            else if (pid1 == 0 && !TempData.ContainsKey("pid1Chosen") && !TempData.ContainsKey("pid2Chosen") && pid2 != 0)
+            //has just chosen player 2 - no player 1 selection has been made
+            else if (pid1 == 0 && pid2 != 0 && (!TempData.ContainsKey("pid1Chosen") || TempData["pid1Chosen"].ToString() == "no"))
             {
                 PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
                 PlayerInfo firstSelectedPlayerInfo = new PlayerInfo();
 
                 List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
-                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
                 combinedPlayerInfo.Add(firstSelectedPlayerInfo);
-
+                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
+                
                 TempData["pid1Chosen"] = "no";
                 TempData["pid2Chosen"] = pid2.ToString();
                 TempData.Keep();
@@ -154,10 +154,10 @@ namespace CricketFavourites.Controllers
                 return View(combinedPlayerInfo);
             }
 
-            //having selected player 1 on previous request, has now selected player 2
-            else if (TempData["pid1Chosen"].ToString() != "no"  && pid2 != 0)
+            //USED having previously made a selection of any type, has now selected player 2
+            else if (TempData["pid1Chosen"].ToString() != "no" && pid2 != 0)
             {
-                pid1 = Int32.Parse(TempData["pid1Chosen"] as string);        
+                pid1 = Int32.Parse(TempData["pid1Chosen"] as string);
                 PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
                 PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
 
@@ -173,7 +173,7 @@ namespace CricketFavourites.Controllers
             }
 
 
-            //having selected player 2 on previous request, has now selected Player 1
+            //USED previously made a selection of any type has now selected Player 1
             else if (TempData["pid2Chosen"].ToString() != "no" && pid1 != 0)
             {
                 pid2 = Int32.Parse(TempData["pid2Chosen"] as string);
@@ -191,52 +191,13 @@ namespace CricketFavourites.Controllers
                 return View(combinedPlayerInfo);
             }
 
-
-            //having selected player 2 on previous request (and player 1 prior to that...), has now selected player 2 again
-            else if (TempData["pid2Chosen"].ToString() != "no" && pid2 != 0)
-            {
-                pid1 = Int32.Parse(TempData["pid1Chosen"] as string);
-                PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
-                PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
-
-                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
-                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
-                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
-
-                TempData["pid2Chosen"] = pid2.ToString();
-                TempData["pid1Chosen"] = pid1.ToString();
-                TempData.Keep();
-
-                return View(combinedPlayerInfo);
-            }
-
-            //having selected player 1 on previous request (and player 2 prior to that...), has now selected player 1 again
-            else if (TempData["pid1Chosen"].ToString() != "no" && pid1 != 0)
-            {
-                pid2 = Int32.Parse(TempData["pid2Chosen"] as string);
-                PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
-                PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
-
-                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
-                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
-                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
-
-                TempData["pid2Chosen"] = pid2.ToString();
-                TempData["pid1Chosen"] = pid1.ToString();
-                TempData.Keep();
-
-                return View(combinedPlayerInfo);
-            }
-
-
-
             else
             {
                 return View();
             }
-            
+
         }
 
-    
+
     }
 }

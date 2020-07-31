@@ -197,3 +197,11 @@ p {
 .comparisonDropdown {
     display: inline-block;
 }
+
+.searchBarLabelContainer {
+    text-align: center;
+}
+
+.searchBarLabel {
+    display: inline-block;
+}
