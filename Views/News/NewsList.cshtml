@@ -19,16 +19,16 @@ else
 
 @if (Model != null)
 {
-    <h4>Or view news for another player:</h4>@await Component.InvokeAsync("FavouritesDropDownMenu")
+    <h4>Or view news for another player:</h4>
+    @await Component.InvokeAsync("FavouritesDropDownMenu")
     <br />
-
-    <hr />
     @foreach (var item in Model.items)
     {
-        <h2>@item.name</h2>
-        <p>@item.description</p>
-        <p><a href="@item.url">@item.url</a></p>
-        <hr />
+        <div class="newsCard">
+            <h2>@item.name</h2>
+            <p>@item.description</p>
+            <p><a href="@item.url">@item.url</a></p>
+        </div>
     }
 }
 

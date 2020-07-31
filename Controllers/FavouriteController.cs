@@ -37,7 +37,7 @@ namespace CricketFavourites.Controllers
             List<PlayerInfo> currentFavouriteInfoList = new List<PlayerInfo>();
             PlayerInfo currentFavouriteInfo = new PlayerInfo();
 
-            //get new data on each favourite from the API and add to list
+            //get up-to-date data on each favourite from the API and add to list
             foreach (var f in currentFavourites)
             {
                 currentFavouriteInfo = await _cricApiRepository.GetPlayerInfo(f.Pid);
@@ -111,9 +111,130 @@ namespace CricketFavourites.Controllers
         }
 
 
-        public IActionResult Compare()
+        public async Task<IActionResult> CompareStats(int pid1, int pid2)
         {
-            return View();
+            //default page where no player is selected when it loads
+            if (pid1 == 0 && pid2 == 0)
+            {
+                TempData.Clear();
+                return View();
+            }
+
+            //has just chosen player 1 for first time - no player 2 selection has been made
+            else if (pid1 != 0 && pid2 == 0 && !TempData.ContainsKey("pid2Chosen"))
+            {
+                PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
+                PlayerInfo secondSelectedPlayerInfo = new PlayerInfo();
+
+                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
+                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
+                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
+
+                TempData["pid1Chosen"] = pid1.ToString();
+                TempData["pid2Chosen"] = "no";
+                TempData.Keep();
+
+                return View(combinedPlayerInfo);
+            }
+
+            //has just chosen player 2 for first time - no player 1 selection has been made
+            else if (pid1 == 0 && !TempData.ContainsKey("pid1Chosen") && !TempData.ContainsKey("pid2Chosen") && pid2 != 0)
+            {
+                PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
+                PlayerInfo firstSelectedPlayerInfo = new PlayerInfo();
+
+                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
+                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
+                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
+
+                TempData["pid1Chosen"] = "no";
+                TempData["pid2Chosen"] = pid2.ToString();
+                TempData.Keep();
+
+                return View(combinedPlayerInfo);
+            }
+
+            //having selected player 1 on previous request, has now selected player 2
+            else if (TempData["pid1Chosen"].ToString() != "no"  && pid2 != 0)
+            {
+                pid1 = Int32.Parse(TempData["pid1Chosen"] as string);        
+                PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
+                PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
+
+                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
+                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
+                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
+
+                TempData["pid2Chosen"] = pid2.ToString();
+                TempData["pid1Chosen"] = pid1.ToString();
+                TempData.Keep();
+
+                return View(combinedPlayerInfo);
+            }
+
+
+            //having selected player 2 on previous request, has now selected Player 1
+            else if (TempData["pid2Chosen"].ToString() != "no" && pid1 != 0)
+            {
+                pid2 = Int32.Parse(TempData["pid2Chosen"] as string);
+                PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
+                PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
+
+                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
+                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
+                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
+
+                TempData["pid2Chosen"] = pid2.ToString();
+                TempData["pid1Chosen"] = pid1.ToString();
+                TempData.Keep();
+
+                return View(combinedPlayerInfo);
+            }
+
+
+            //having selected player 2 on previous request (and player 1 prior to that...), has now selected player 2 again
+            else if (TempData["pid2Chosen"].ToString() != "no" && pid2 != 0)
+            {
+                pid1 = Int32.Parse(TempData["pid1Chosen"] as string);
+                PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
+                PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
+
+                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
+                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
+                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
+
+                TempData["pid2Chosen"] = pid2.ToString();
+                TempData["pid1Chosen"] = pid1.ToString();
+                TempData.Keep();
+
+                return View(combinedPlayerInfo);
+            }
+
+            //having selected player 1 on previous request (and player 2 prior to that...), has now selected player 1 again
+            else if (TempData["pid1Chosen"].ToString() != "no" && pid1 != 0)
+            {
+                pid2 = Int32.Parse(TempData["pid2Chosen"] as string);
+                PlayerInfo firstSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid1);
+                PlayerInfo secondSelectedPlayerInfo = await _cricApiRepository.GetPlayerInfo(pid2);
+
+                List<PlayerInfo> combinedPlayerInfo = new List<PlayerInfo>();
+                combinedPlayerInfo.Add(firstSelectedPlayerInfo);
+                combinedPlayerInfo.Add(secondSelectedPlayerInfo);
+
+                TempData["pid2Chosen"] = pid2.ToString();
+                TempData["pid1Chosen"] = pid1.ToString();
+                TempData.Keep();
+
+                return View(combinedPlayerInfo);
+            }
+
+
+
+            else
+            {
+                return View();
+            }
+            
         }
 
     

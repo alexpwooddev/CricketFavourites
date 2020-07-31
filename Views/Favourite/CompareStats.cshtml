@@ -1,0 +1,585 @@
+﻿@model List<PlayerInfo>
+
+<div class="flex-grid">
+    <div class="col">
+        <div class="comparisonDropdownContainer">
+            <div class="comparisonDropdown">
+                @await Component.InvokeAsync("CompareFavouritesDropdown1")
+            </div>
+        </div>
+        <br />
+
+        @if (TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no")
+        {
+            @if (Model[0].name != null)
+            {
+                <h1>@Model[0].name's Stats</h1>
+            }
+
+            <h4>Bowling</h4>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:25%"> </th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <th scope="col" style="width:25%">Tests</th>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <th scope="col" style="width:25%">ODIs</th>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <th scope="col" style="width:25%">T20 Int.</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Ten wicket hauls</th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <td>@Model[0].data.bowling.tests.ten</td>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[0].data.bowling.ODIs.ten</td>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[0].data.bowling.T20Is.ten</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Five wicket hauls</th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <td>@Model[0].data.bowling.tests.fiveW</td>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[0].data.bowling.ODIs.fiveW</td>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[0].data.bowling.T20Is.fiveW</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">S/R</th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <td>@Model[0].data.bowling.tests.SR</td>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[0].data.bowling.ODIs.SR</td>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[0].data.bowling.T20Is.SR</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Econ.</th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <td>@Model[0].data.bowling.tests.Econ</td>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[0].data.bowling.ODIs.Econ</td>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[0].data.bowling.T20Is.Econ</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Avg.</th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <td>@Model[0].data.bowling.tests.Ave</td>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[0].data.bowling.ODIs.Ave</td>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[0].data.bowling.T20Is.Ave</td>
+                        }>
+                    <tr>
+                        <th scope="row">Wickets</th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <td>@Model[0].data.bowling.tests.Wkts</td>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[0].data.bowling.ODIs.Wkts</td>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[0].data.bowling.T20Is.Wkts</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Matches</th>
+                        @if (Model[0].data.bowling.tests != null)
+                        {
+                            <td>@Model[0].data.bowling.tests.Mat</td>
+                        }
+                        @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[0].data.bowling.ODIs.Mat</td>
+                        }
+                        @if (Model[0].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[0].data.bowling.T20Is.Mat</td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <h4>Batting</h4>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:25%"> </th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <th scope="col" style="width:25%">Tests</th>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <th scope="col" style="width:25%">ODIs</th>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <th scope="col" style="width:25%">T20 Int.</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">50s</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.fifty</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.fifty</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.fifty</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">100s</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.oneHundred</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.oneHundred</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.oneHundred</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Avg.</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.Ave</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.Ave</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.Ave</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">S/R</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.SR</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.SR</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.SR</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">High Score</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.HS</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.HS</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.HS</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Runs</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.Runs</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.Runs</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.Runs</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Innings</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.Inns</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.Inns</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.Inns</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Matches</th>
+                        @if (Model[0].data.batting.tests != null)
+                        {
+                            <td>@Model[0].data.batting.tests.Mat</td>
+                        }
+                        @if (Model[0].data.batting.ODIs != null)
+                        {
+                            <td>@Model[0].data.batting.ODIs.Mat</td>
+                        }
+                        @if (Model[0].data.batting.T20Is != null)
+                        {
+                            <td>@Model[0].data.batting.T20Is.Mat</td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        }
+
+
+    </div>
+
+    <div class="col">
+        <div class="comparisonDropdownContainer">
+            <div class="comparisonDropdown">
+                @await Component.InvokeAsync("CompareFavouritesDropdown2")
+            </div>
+        </div>
+        <br />
+
+        @if (TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no")
+        {
+            @if (Model[1].name != null)
+            {
+                <h1>@Model[1].name's Stats</h1>
+            }
+
+            <h4>Bowling</h4>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:25%"> </th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <th scope="col" style="width:25%">Tests</th>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <th scope="col" style="width:25%">ODIs</th>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <th scope="col" style="width:25%">T20 Int.</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Ten wicket hauls</th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <td>@Model[1].data.bowling.tests.ten</td>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[1].data.bowling.ODIs.ten</td>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[1].data.bowling.T20Is.ten</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Five wicket hauls</th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <td>@Model[1].data.bowling.tests.fiveW</td>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[1].data.bowling.ODIs.fiveW</td>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[1].data.bowling.T20Is.fiveW</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">S/R</th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <td>@Model[1].data.bowling.tests.SR</td>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[1].data.bowling.ODIs.SR</td>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[1].data.bowling.T20Is.SR</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Econ.</th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <td>@Model[1].data.bowling.tests.Econ</td>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[1].data.bowling.ODIs.Econ</td>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[1].data.bowling.T20Is.Econ</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Avg.</th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <td>@Model[1].data.bowling.tests.Ave</td>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[1].data.bowling.ODIs.Ave</td>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[1].data.bowling.T20Is.Ave</td>
+                        }>
+                    <tr>
+                        <th scope="row">Wickets</th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <td>@Model[1].data.bowling.tests.Wkts</td>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[1].data.bowling.ODIs.Wkts</td>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[1].data.bowling.T20Is.Wkts</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Matches</th>
+                        @if (Model[1].data.bowling.tests != null)
+                        {
+                            <td>@Model[1].data.bowling.tests.Mat</td>
+                        }
+                        @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            <td>@Model[1].data.bowling.ODIs.Mat</td>
+                        }
+                        @if (Model[1].data.bowling.T20Is != null)
+                        {
+                            <td>@Model[1].data.bowling.T20Is.Mat</td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <h4>Batting</h4>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:25%"> </th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <th scope="col" style="width:25%">Tests</th>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <th scope="col" style="width:25%">ODIs</th>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <th scope="col" style="width:25%">T20 Int.</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">50s</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.fifty</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.fifty</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.fifty</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">100s</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.oneHundred</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.oneHundred</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.oneHundred</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Avg.</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.Ave</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.Ave</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.Ave</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">S/R</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.SR</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.SR</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.SR</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">High Score</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.HS</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.HS</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.HS</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Runs</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.Runs</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.Runs</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.Runs</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Innings</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.Inns</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.Inns</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.Inns</td>
+                        }
+                    </tr>
+                    <tr>
+                        <th scope="row">Matches</th>
+                        @if (Model[1].data.batting.tests != null)
+                        {
+                            <td>@Model[1].data.batting.tests.Mat</td>
+                        }
+                        @if (Model[1].data.batting.ODIs != null)
+                        {
+                            <td>@Model[1].data.batting.ODIs.Mat</td>
+                        }
+                        @if (Model[1].data.batting.T20Is != null)
+                        {
+                            <td>@Model[1].data.batting.T20Is.Mat</td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        }
+
+
+
+    </div>
+
+</div>
