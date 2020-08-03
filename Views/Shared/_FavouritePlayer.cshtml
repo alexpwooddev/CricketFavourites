@@ -10,6 +10,17 @@
 
         <img class="card-img-top" src="@imgSrc" alt="" />
     }
+    else
+    {
+        <div class="card">
+            <p class="btn">
+                <a class="btn btn-primary"
+                   asp-controller="FileUpload"
+                   asp-action="Index"
+                   asp-route-pid="@Model.Key.pid">Add an image for this player</a>
+            </p>
+        </div>
+    }
     <div class="card-body">
         <h3 class="card-subtitle">@Model.Key.name</h3>
 
@@ -41,11 +52,14 @@
                asp-action="CompareStats"
                asp-route-pid1="@Model.Key.pid">Compare stats with other favourites</a>
         </p>
-        <p class="btn">
-            <a class="btn btn-primary"
-               asp-controller="FileUpload"
-               asp-action="Index"
-               asp-route-pid="@Model.Key.pid">Add an image for this player</a>
-        </p>
+        @if (Model.Value != null)
+        {
+            <p class="btn">
+                <a class="btn btn-primary"
+                   asp-controller="FileUpload"
+                   asp-action="Index"
+                   asp-route-pid="@Model.Key.pid">Change the image for this player</a>
+            </p>
+        }
     </div>
 </div>

@@ -10,5 +10,9 @@ namespace CricketFavourites.Data.Repositories
     public interface IFileRepository
     {
         FileModel GetImageByFavouriteId(int id);
+
+        public Task<List<FileModel>> AllFiles();
+
+        public void SavePlayerImage(List<Microsoft.AspNetCore.Http.IFormFile> files, string description, int favouriteId);
     }
 }

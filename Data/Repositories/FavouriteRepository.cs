@@ -79,12 +79,18 @@ namespace CricketFavourites.Data.Repositories
         {
             var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            //get relevant favouriteId
+            //get relevant favouriteId and FileModel(images) associated with this userFavourite
             var favouriteId = _dbContext.Favourites.FirstOrDefault(f => f.Pid == pid).Id;
+            var savedImage = _dbContext.Files.FirstOrDefault(f => f.ApplicationUserId == userId && f.FavouriteId == favouriteId);
 
             //get the join entity based on the UserId and favouriteId
             var applicationUserFavourite = _dbContext.ApplicationUserFavourites.First(row => row.ApplicationUserId == userId && row.FavouriteId == favouriteId);
 
+            if(savedImage != null)
+            {
+                _dbContext.Remove(savedImage);
+            }
+            
             _dbContext.Remove(applicationUserFavourite);
             _dbContext.SaveChanges();
         }
