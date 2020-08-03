@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace CricketFavourites.ViewModels
 {
-    public class FavouritesViewModel
+    public class FileUploadViewModel
     {
-        //public List<PlayerInfo> FavouritesInfo { get; set; }
-
-        public Dictionary<PlayerInfo, FileModel> CombinedPlayersAndImages { get; set; }
-
+        public Favourite CurrentFavourite { get; set; }
+        public List<FileModel> Files { get; set; }
     }
 }

@@ -19,13 +19,15 @@ namespace CricketFavourites.Controllers
     {
         private readonly ICricApiRepository _cricApiRepository;
         private readonly IFavouriteRepository _favouriteRepository;
+        private readonly IFileRepository _fileRepository;
         private readonly IServiceProvider _services;
 
-        public FavouriteController(ICricApiRepository cricApiRepository, IFavouriteRepository favouriteRepository,
+        public FavouriteController(ICricApiRepository cricApiRepository, IFavouriteRepository favouriteRepository, IFileRepository fileRepository,
             IServiceProvider services)
         {
             _cricApiRepository = cricApiRepository;
             _favouriteRepository = favouriteRepository;
+            _fileRepository = fileRepository;
             _services = services;
         }
 
@@ -34,19 +36,26 @@ namespace CricketFavourites.Controllers
             //get all favourite objects for current user
             var currentFavourites = _favouriteRepository.GetCurrentUserFavourites();
 
-            List<PlayerInfo> currentFavouriteInfoList = new List<PlayerInfo>();
+            Dictionary<PlayerInfo, FileModel> combinedPlayerAndImage = new Dictionary<PlayerInfo, FileModel>();
+
+            //List<PlayerInfo> currentFavouriteInfoList = new List<PlayerInfo>();
+
             PlayerInfo currentFavouriteInfo = new PlayerInfo();
+            FileModel currentPlayerImage = new FileModel();
 
             //get up-to-date data on each favourite from the API and add to list
             foreach (var f in currentFavourites)
             {
                 currentFavouriteInfo = await _cricApiRepository.GetPlayerInfo(f.Pid);
-                currentFavouriteInfoList.Add(currentFavouriteInfo);
+                currentPlayerImage = _fileRepository.GetImageByFavouriteId(f.Id);
+                combinedPlayerAndImage.Add(currentFavouriteInfo, currentPlayerImage);
+
+                //currentFavouriteInfoList.Add(currentFavouriteInfo);
             }
 
             return View(new FavouritesViewModel
             {
-                FavouritesInfo = currentFavouriteInfoList
+                CombinedPlayersAndImages = combinedPlayerAndImage
             });
         }
 

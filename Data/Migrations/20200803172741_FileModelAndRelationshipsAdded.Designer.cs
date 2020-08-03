@@ -4,14 +4,16 @@ using CricketFavourites.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CricketFavourites.Data.Migrations
 {
     [DbContext(typeof(DbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200803172741_FileModelAndRelationshipsAdded")]
+    partial class FileModelAndRelationshipsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,7 +122,7 @@ namespace CricketFavourites.Data.Migrations
                     b.ToTable("Favourites");
                 });
 
-            modelBuilder.Entity("CricketFavourites.Models.FileModel", b =>
+            modelBuilder.Entity("CricketFavourites.Models.File", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -157,7 +159,7 @@ namespace CricketFavourites.Data.Migrations
 
                     b.HasIndex("FavouriteId");
 
-                    b.ToTable("Files");
+                    b.ToTable("File");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -310,7 +312,7 @@ namespace CricketFavourites.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CricketFavourites.Models.FileModel", b =>
+            modelBuilder.Entity("CricketFavourites.Models.File", b =>
                 {
                     b.HasOne("CricketFavourites.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Files")

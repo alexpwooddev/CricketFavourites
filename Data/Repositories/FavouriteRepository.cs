@@ -97,7 +97,7 @@ namespace CricketFavourites.Data.Repositories
 
         public Favourite GetFavouriteByPid(int pid)
         {
-            return _dbContext.Favourites.FirstOrDefault(f => f.Id == pid);
+            return _dbContext.Favourites.FirstOrDefault(f => f.Pid == pid);
         }
 
     }

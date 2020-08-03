@@ -1,0 +1,16 @@
+﻿@model FileUploadViewModel
+
+<h4>Upload an Image for this Player</h4>
+<hr />
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="files" multiple required />
+    <input type="text" autocomplete="off" placeholder="Enter image description"
+           name="description" required />
+    <button type="submit" class="btn btn-primary"
+            asp-controller="FileUpload"
+            asp-action="SetAsPlayerImage"
+            asp-route-favouriteId="@Model.CurrentFavourite.Id">
+        Set as Player Image
+    </button>
+</form>

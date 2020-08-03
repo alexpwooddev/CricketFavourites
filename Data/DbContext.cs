@@ -14,6 +14,7 @@ namespace CricketFavourites.Data
 
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<ApplicationUserFavourite> ApplicationUserFavourites { get; set; }
+        public DbSet<FileModel> Files { get; set; }
 
 
         public DbContext(DbContextOptions<DbContext> options)

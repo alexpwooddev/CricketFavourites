@@ -23,9 +23,9 @@
     {
         <h1>Your favourite players:</h1>
         <div class="containerflex">
-            @foreach (var favouriteInfo in Model.FavouritesInfo)
-            {
-                <partial name="_FavouritePlayer" model="favouriteInfo" />
+            @foreach (KeyValuePair<PlayerInfo, FileModel> entry in Model.CombinedPlayersAndImages)
+                {
+                <partial name="_FavouritePlayer" model="entry" />
             }
         </div>
     }

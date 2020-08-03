@@ -1,11 +1,21 @@
-﻿@model PlayerInfo
+﻿@model KeyValuePair<PlayerInfo, FileModel>
+
 
 <div class="card">
+    @if (Model.Value != null)
+    {
+
+        var base64 = Convert.ToBase64String(Model.Value.Data);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+        <img class="card-img-top" src="@imgSrc" alt="" />
+    }
     <div class="card-body">
-        <h3 class="card-subtitle">@Model.name</h3>
+        <h3 class="card-subtitle">@Model.Key.name</h3>
+
         <p>
-            <strong>Country:</strong> @Model.country <br />   <strong>Age:</strong> @Model.currentAge <br />  <strong>Batting style:</strong> @Model.battingStyle <br />
-            <strong>Bowling style:</strong> @Model.bowlingStyle
+            <strong>Country:</strong> @Model.Key.country <br />   <strong>Age:</strong> @Model.Key.currentAge <br />  <strong>Batting style:</strong> @Model.Key.battingStyle <br />
+            <strong>Bowling style:</strong> @Model.Key.bowlingStyle
         </p>
     </div>
     <div>
@@ -13,17 +23,29 @@
             <a class="btn btn-primary"
                asp-controller="News"
                asp-action="NewsForSelectedPlayer"
-               asp-route-name="@Model.name">View news</a>
+               asp-route-name="@Model.Key.name">View news</a>
         </p>
         <p class="btn">
             <a class="btn btn-danger"
                asp-action="Unfavourite"
-               asp-route-pid="@Model.pid">Unfavourite</a>
+               asp-route-pid="@Model.Key.pid">Unfavourite</a>
         </p>
         <p class="btn">
             <a class="btn btn-primary"
                asp-action="ShowPlayerStats"
-               asp-route-pid="@Model.pid">Show stats</a>
+               asp-route-pid="@Model.Key.pid">Show stats</a>
+        </p>
+        <p class="btn">
+            <a class="btn btn-primary"
+               asp-controller="Favourite"
+               asp-action="CompareStats"
+               asp-route-pid1="@Model.Key.pid">Compare stats with other favourites</a>
+        </p>
+        <p class="btn">
+            <a class="btn btn-primary"
+               asp-controller="FileUpload"
+               asp-action="Index"
+               asp-route-pid="@Model.Key.pid">Add an image for this player</a>
         </p>
     </div>
 </div>

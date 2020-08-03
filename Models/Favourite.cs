@@ -13,5 +13,7 @@ namespace CricketFavourites.Models
         public string FullName { get; set; }
         public string Name { get; set; }
         public List<ApplicationUserFavourite> ApplicationUserFavorites { get; set; }
+        public List<FileModel> Files { get; set; }
+
     }
 }

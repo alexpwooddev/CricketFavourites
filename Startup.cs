@@ -42,6 +42,7 @@ namespace CricketFavourites
             services.AddScoped<ICricApiRepository, CricApiRepository>();
             services.AddScoped<INewsApiRepository, NewsApiRepository>();
             services.AddScoped<IFavouriteRepository, FavouriteRepository>();
+            services.AddScoped<IFileRepository, FileRepository>();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         }

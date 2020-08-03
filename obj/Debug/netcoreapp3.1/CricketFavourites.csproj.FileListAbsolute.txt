@@ -99,3 +99,4 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\R
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\CompareStats.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CompareFavouritesDropdown1\Default.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CompareFavouritesDropdown2\Default.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\FileUpload\Index.cshtml.g.cs

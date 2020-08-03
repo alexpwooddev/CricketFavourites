@@ -12,5 +12,8 @@ namespace CricketFavourites.Areas.Identity.Data
     {
         public List<ApplicationUserFavourite> ApplicationUserFavourites { get; set; }
 
+        public List<FileModel> Files { get; set; }
+
+
     }
 }
