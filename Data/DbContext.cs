@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CricketFavourites.Data
 {
-
     public class DbContext : IdentityDbContext<ApplicationUser>
     {
 
@@ -21,7 +20,6 @@ namespace CricketFavourites.Data
             : base(options)
         {
         }
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

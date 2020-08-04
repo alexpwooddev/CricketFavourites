@@ -29,7 +29,7 @@ namespace CricketFavourites.Data.Repositories
             return allFiles;       
         }
 
-        public void SavePlayerImage(List<IFormFile> files, string description, int favouriteId)
+        public void SavePlayerImage(List<IFormFile> files, int favouriteId)
         {
             var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var existingFile = _dbContext.Files.FirstOrDefault(f => f.ApplicationUserId == userId && f.FavouriteId == favouriteId);
@@ -49,7 +49,6 @@ namespace CricketFavourites.Data.Repositories
                     FileType = file.ContentType,
                     Extension = extension,
                     Name = fileName,
-                    Description = description,
                     ApplicationUserId = userId,
                     FavouriteId = favouriteId
                 };

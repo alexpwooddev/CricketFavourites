@@ -4,6 +4,10 @@
 {
     <h1>@TempData["newsPageTitle"]</h1>
 }
+else if (TempData.ContainsKey("noFavouritesMessage"))
+{
+    <div class="alert alert-info text-center">@TempData["noFavouritesMessage"].ToString()</div>
+}
 else
 {
     @if (Model != null)

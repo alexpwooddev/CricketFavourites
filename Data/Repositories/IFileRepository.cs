@@ -13,6 +13,6 @@ namespace CricketFavourites.Data.Repositories
 
         public Task<List<FileModel>> AllFiles();
 
-        public void SavePlayerImage(List<Microsoft.AspNetCore.Http.IFormFile> files, string description, int favouriteId);
+        public void SavePlayerImage(List<Microsoft.AspNetCore.Http.IFormFile> files, int favouriteId);
     }
 }

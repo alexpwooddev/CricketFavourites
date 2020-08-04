@@ -14,10 +14,21 @@
     </div>
 </div>
 <br />
-@if (TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no" &&
-  TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no")
+
+@if (TempData.ContainsKey("noFavouritesMessage"))
 {
-<script>
+    <div class="alert alert-info text-center">@TempData["noFavouritesMessage"].ToString()</div>
+}
+
+
+@if (TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no" &&
+TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no")
+{
+    <div id="containerBatting" style="width:100%; height:400px;"></div>
+    <br />
+    <div id="containerBowling" style="width:100%; height:400px;"></div>
+
+    <script>
 document.addEventListener('DOMContentLoaded', function () {
         var myChart = Highcharts.chart('containerBatting', {
             chart: {
@@ -29,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
             xAxis: {
                 categories: ['Test 100s', 'Test Avg.', 'Test S/R', 'ODI 100s', 'ODI Avg.', 'ODI S/R']
             },
-
             series: [{
                 name: '@if (Model[0].name != null)
             {
@@ -81,12 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }]
         });
     }); </script>
-}
 
-@if (TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no" &&
-  TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no")
-{
-<script>
+    <script>
 document.addEventListener('DOMContentLoaded', function () {
         var myChart = Highcharts.chart('containerBowling', {
             chart: {
@@ -164,15 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }); </script>
 }
 
-
-
-
-<div id="containerBatting" style="width:100%; height:400px;"></div>
 <br />
-<div id="containerBowling" style="width:100%; height:400px;"></div>"
-
-
-
 <div class="flex-grid">
     <div class="col">
         <br />

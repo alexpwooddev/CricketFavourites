@@ -41,36 +41,5 @@ namespace CricketFavourites.Data
             return JsonConvert.DeserializeObject<NewsItems>(response.Content);
         }
 
-
-
-
-
-
-
-        //string url = BASE_URL + string.Format(SEARCH_ENDPOINT, query);
-
-        //using (HttpClient client = new HttpClient())
-        //{
-        //    var request = new HttpRequestMessage()
-        //    {
-        //        RequestUri = new Uri(url),
-        //        Method = HttpMethod.Get
-        //    };
-        //    request.Headers.Accept.Add(new System.Net.Http.Headers
-        //        .MediaTypeWithQualityHeaderValue("x-rapidapi-host/bing-news-search1.p.rapidapi.com"));
-        //    request.Headers.Accept.Add(new System.Net.Http.Headers
-        //        .MediaTypeWithQualityHeaderValue($"x-rapidapi-key/{API_KEY}"));
-
-        //    var response = await client.SendAsync(request);
-
-        //    string json = await response.Content.ReadAsStringAsync();
-
-        //    newsItems = JsonConvert.DeserializeObject<NewsItems>(json);
-        //}
-        //return newsItems;
-
-
-
-
     }
 }

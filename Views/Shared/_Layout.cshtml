@@ -25,7 +25,7 @@
                             <a class="nav-link" asp-area="" asp-controller="News" asp-action="DefaultNewsList">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Favourite" asp-action="CompareStats">Compare</a>
+                            <a class="nav-link" asp-area="" asp-controller="Favourite" asp-action="CompareStats">Compare Favourites</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Favourite" asp-action="Search">Player Search</a>
@@ -43,10 +43,35 @@
 
     <footer class="page-footer center-on-small-only pt-0">
         <div class="container">
-            <div class="row pt-5 text-center d-flex justify-content-center">
-                &copy; 2020 - CricketFavourites - Player Information Courtesy of &nbsp;<a href="https://www.cricapi.com/">https://www.cricapi.com/</a> - News Courtesy of &nbsp;<a href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/details">Bing News Search API</a>
+            <!--Grid row-->
+            <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
+                <!--Grid column-->
+                <div class="col-md-2 mb-3">
+                    <h6 class="title font-bold"><a class="text-dark" asp-controller="Page" asp-action="About">About</a></h6>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-2 mb-3">
+                    <h6 class="title font-bold"><a class="text-dark" asp-controller="Page" asp-action="Contact">Contact</a></h6>
+                </div>
+                <!--Grid column-->
 
             </div>
+            <!--Grid row-->
+
+            <hr class="rgba-white-light" style="margin: 0 15%;">
+
+            <!--Grid row-->
+            <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+                <div class="col-md-8 col-12 mt-5">
+                    &copy; 2020 - CricketFavourites - Player Information Courtesy of &nbsp;<a href="https://www.cricapi.com/">https://www.cricapi.com/</a>
+                    <br />
+                    News Courtesy of &nbsp;<a href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/details">Bing News Search API</a>
+
+                </div>
+            </div>
+            <!--Grid row-->
+            <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

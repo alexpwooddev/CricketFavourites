@@ -24,9 +24,6 @@ namespace CricketFavourites.Data
             API_KEY = $"?apikey={config["CricApi:ApiKey"]}";
         }
         
-
-
-
         public async Task<PlayerList> GetPlayers(string query)
         {
             PlayerList players = new PlayerList();

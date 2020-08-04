@@ -31,7 +31,6 @@ namespace CricketFavourites.Controllers
             _favouriteRepository = favouriteRepository;
         }
 
-
         public async Task<IActionResult> Index(int pid)
         {
             if (pid == 0)
@@ -46,7 +45,6 @@ namespace CricketFavourites.Controllers
             return View(fileUploadViewModel);
         }
 
-
         private async Task<FileUploadViewModel> LoadAllFiles()
         {
             var viewModel = new FileUploadViewModel();
@@ -54,14 +52,11 @@ namespace CricketFavourites.Controllers
             return viewModel;
         }
 
-
-        public IActionResult SetAsPlayerImage(List<IFormFile> files, string description, int favouriteId)
+        public IActionResult SetAsPlayerImage(List<IFormFile> files, int favouriteId)
         {
-            _fileRepository.SavePlayerImage(files, description, favouriteId);
+            _fileRepository.SavePlayerImage(files, favouriteId);
             TempData["Message"] = "File successfully uploaded";
             return RedirectToAction("List", "Favourite");
         }
-
-
     }
 }

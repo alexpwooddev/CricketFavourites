@@ -101,10 +101,12 @@ namespace CricketFavourites.Data.Repositories
             return _dbContext.Favourites.FirstOrDefault(f => f.FullName == fullName);
         }
 
+
         public Favourite GetFavouriteByPid(int pid)
         {
             return _dbContext.Favourites.FirstOrDefault(f => f.Pid == pid);
         }
+
 
         public bool HasBeenFavouritedAlready(int pid)
         {
@@ -121,5 +123,6 @@ namespace CricketFavourites.Data.Repositories
                 return false;
             }
         }
+
     }
 }
