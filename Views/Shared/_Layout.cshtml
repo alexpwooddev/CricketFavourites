@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CricketFavourites</title>
-    <script src="https://kit.fontawesome.com/94308c0f38.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/94308c0f38.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark  border-bottom box-shadow mb-3" style="background-color: #AC3B61;">
             <div class="container">
-                <a class="navbar-brand text-nowrap" asp-area="" asp-controller="Favourite" asp-action="List">Cricket Favourites</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Favourite" asp-action="List">Cricket Favourites</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,9 +40,12 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="page-footer center-on-small-only pt-0">
         <div class="container">
-            &copy; 2020 - CricketFavourites - Player Information Courtesy of <a href="https://www.cricapi.com/">https://www.cricapi.com/</a> - News Courtesy of <a href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/details">Bing News Search API</a>
+            <div class="row pt-5 text-center d-flex justify-content-center">
+                &copy; 2020 - CricketFavourites - Player Information Courtesy of &nbsp;<a href="https://www.cricapi.com/">https://www.cricapi.com/</a> - News Courtesy of &nbsp;<a href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/details">Bing News Search API</a>
+
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
