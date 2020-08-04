@@ -1,14 +1,181 @@
 ﻿@model List<PlayerInfo>
 
+
+<div class="flex-grid">
+    <div class="col comparisonDropdownContainer">
+        <div class="comparisonDropdown">
+            @await Component.InvokeAsync("CompareFavouritesDropdown1")
+        </div>
+    </div>
+    <div class="col comparisonDropdownContainer">
+        <div class="comparisonDropdown">
+            @await Component.InvokeAsync("CompareFavouritesDropdown2")
+        </div>
+    </div>
+</div>
+<br />
+@if (TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no" &&
+  TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no")
+{
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+        var myChart = Highcharts.chart('containerBatting', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Batting Comparison'
+            },
+            xAxis: {
+                categories: ['Test 100s', 'Test Avg.', 'Test S/R', 'ODI 100s', 'ODI Avg.', 'ODI S/R']
+            },
+
+            series: [{
+                name: '@if (Model[0].name != null)
+            {
+                @Model[0].name
+            }',
+                data: [@if (Model[0].data.batting.tests != null)
+                        {
+                            @Model[0].data.batting.tests.oneHundred
+                        }, @if (Model[0].data.batting.tests != null)
+                        {
+                            @Model[0].data.batting.tests.Ave
+                        }, @if (Model[0].data.batting.tests != null)
+                        {
+                            @Model[0].data.batting.tests.SR
+                        }, @if (Model[0].data.batting.ODIs != null)
+                        {
+                            @Model[0].data.batting.ODIs.oneHundred
+                        }, @if (Model[0].data.batting.ODIs != null)
+                        {
+                            @Model[0].data.batting.ODIs.Ave
+                        }, @if (Model[0].data.batting.ODIs != null)
+                        {
+                            @Model[0].data.batting.ODIs.SR
+                        } ]
+            }, {
+                name: '@if (Model[1].name != null)
+            {
+                @Model[1].name
+            }',
+                data: [@if (Model[1].data.batting.tests != null)
+                        {
+                            @Model[1].data.batting.tests.oneHundred
+                        }, @if (Model[1].data.batting.tests != null)
+                        {
+                            @Model[1].data.batting.tests.Ave
+                        }, @if (Model[1].data.batting.tests != null)
+                        {
+                            @Model[1].data.batting.tests.SR
+                        }, @if (Model[1].data.batting.ODIs != null)
+                        {
+                            @Model[1].data.batting.ODIs.oneHundred
+                        }, @if (Model[1].data.batting.ODIs != null)
+                        {
+                            @Model[1].data.batting.ODIs.Ave
+                        }, @if (Model[1].data.batting.ODIs != null)
+                        {
+                            @Model[1].data.batting.ODIs.SR
+                        } ]
+            }]
+        });
+    }); </script>
+}
+
+@if (TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no" &&
+  TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no")
+{
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+        var myChart = Highcharts.chart('containerBowling', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Bowling Comparison'
+            },
+            xAxis: {
+                categories: ['Test 5 wicket hauls', 'Test S/R', 'Test Econ.', 'Test Avg.', 'ODI 5 wicket hauls', 'ODI S/R', 'ODI Econ.', 'ODI Avg.']
+            },
+
+            series: [{
+                name: '@if (Model[0].name != null)
+            {
+                @Model[0].name
+            }',
+                data: [@if (Model[0].data.bowling.tests != null)
+                        {
+                            @Model[0].data.bowling.tests.fiveW
+                        }, @if (Model[0].data.bowling.tests != null)
+                        {
+                            @Model[0].data.bowling.tests.SR
+                        }, @if (Model[0].data.bowling.tests != null)
+                        {
+                            @Model[0].data.bowling.tests.Econ
+                        }, @if (Model[0].data.bowling.tests != null)
+                        {
+                            @Model[0].data.bowling.tests.Ave
+                        },@if (Model[0].data.bowling.ODIs != null)
+                        {
+                            @Model[0].data.bowling.ODIs.fiveW
+                        }, @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            @Model[0].data.bowling.ODIs.SR
+                        }, @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            @Model[0].data.bowling.ODIs.Econ
+                        }, @if (Model[0].data.bowling.ODIs != null)
+                        {
+                            @Model[0].data.bowling.ODIs.Ave
+                        }  ]
+            }, {
+                name: '@if (Model[1].name != null)
+            {
+                @Model[1].name
+            }',
+                data: [@if (Model[1].data.bowling.tests != null)
+                        {
+                            @Model[1].data.bowling.tests.fiveW
+                        }, @if (Model[1].data.bowling.tests != null)
+                        {
+                            @Model[1].data.bowling.tests.SR
+                        }, @if (Model[1].data.bowling.tests != null)
+                        {
+                            @Model[1].data.bowling.tests.Econ
+                        }, @if (Model[1].data.bowling.tests != null)
+                        {
+                            @Model[1].data.bowling.tests.Ave
+                        }, @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            @Model[1].data.bowling.ODIs.fiveW
+                        }, @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            @Model[1].data.bowling.ODIs.SR
+                        }, @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            @Model[1].data.bowling.ODIs.Econ
+                        }, @if (Model[1].data.bowling.ODIs != null)
+                        {
+                            @Model[1].data.bowling.ODIs.Ave
+                        }   ]
+            }]
+        });
+    }); </script>
+}
+
+
+
+
+<div id="containerBatting" style="width:100%; height:400px;"></div>
+<br />
+<div id="containerBowling" style="width:100%; height:400px;"></div>"
+
+
+
 <div class="flex-grid">
     <div class="col">
-        <div class="comparisonDropdownContainer">
-            <div class="comparisonDropdown">
-                @await Component.InvokeAsync("CompareFavouritesDropdown1")
-            </div>
-        </div>
         <br />
-
         @if (TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no")
         {
             @if (Model[0].name != null)
@@ -292,11 +459,6 @@
     </div>
 
     <div class="col">
-        <div class="comparisonDropdownContainer">
-            <div class="comparisonDropdown">
-                @await Component.InvokeAsync("CompareFavouritesDropdown2")
-            </div>
-        </div>
         <br />
 
         @if (TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no")
