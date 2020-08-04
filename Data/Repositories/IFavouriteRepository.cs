@@ -17,5 +17,7 @@ namespace CricketFavourites.Data.Repositories
         Favourite GetFavouriteByName(string fullName);
         Favourite GetFavouriteByPid(int pid);
 
+        bool HasBeenFavouritedAlready(int pid);
+
     }
 }

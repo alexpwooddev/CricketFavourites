@@ -92,16 +92,27 @@ namespace CricketFavourites.Controllers
 
         public IActionResult AddFavouritePlayer(string fullName, string name, int pid)
         {
-            Favourite favourite = new Favourite
+            //check if this user has already favourited this player and return a message if so
+            if (_favouriteRepository.HasBeenFavouritedAlready(pid))
             {
-                FullName = fullName,
-                Name = name,
-                Pid = pid
-            };
+                TempData["alreadyFavouritedMessage"] = "You have already favourited this player!";
+                return RedirectToAction("List");
+            }
 
-            _favouriteRepository.AddFavourite(favourite);
+            else
+            {
+                Favourite favourite = new Favourite
+                {
+                    FullName = fullName,
+                    Name = name,
+                    Pid = pid
+                };
 
-            return RedirectToAction("List");
+                _favouriteRepository.AddFavourite(favourite);
+
+                return RedirectToAction("List");
+            }
+            
         }
 
         public IActionResult Unfavourite(int pid)

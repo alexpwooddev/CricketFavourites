@@ -34,7 +34,7 @@ namespace CricketFavourites.Data.Repositories
         public List<Favourite> GetCurrentUserFavourites()
         {
             var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-     
+
             return _dbContext.Favourites.FromSqlInterpolated
                 ($"SELECT * FROM favourites f JOIN ApplicationUserFavourites auf ON f.Id = auf.FavouriteId WHERE auf.ApplicationUserId = {userId}").ToList();
         }
@@ -86,11 +86,11 @@ namespace CricketFavourites.Data.Repositories
             //get the join entity based on the UserId and favouriteId
             var applicationUserFavourite = _dbContext.ApplicationUserFavourites.First(row => row.ApplicationUserId == userId && row.FavouriteId == favouriteId);
 
-            if(savedImage != null)
+            if (savedImage != null)
             {
                 _dbContext.Remove(savedImage);
             }
-            
+
             _dbContext.Remove(applicationUserFavourite);
             _dbContext.SaveChanges();
         }
@@ -106,5 +106,20 @@ namespace CricketFavourites.Data.Repositories
             return _dbContext.Favourites.FirstOrDefault(f => f.Pid == pid);
         }
 
+        public bool HasBeenFavouritedAlready(int pid)
+        {
+            var userId = _serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var favourite = _dbContext.Favourites.FirstOrDefault(f => f.Pid == pid);
+
+            if (favourite != null && _dbContext.ApplicationUserFavourites.FirstOrDefault(f => f.ApplicationUserId == userId && f.FavouriteId == favourite.Id) != null)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
     }
 }
