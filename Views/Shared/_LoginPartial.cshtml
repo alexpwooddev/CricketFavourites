@@ -11,7 +11,7 @@
         <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Account</a>
     </li>
     <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("List", "Favourite")">
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("ListFavourites", "Favourite")">
             <button  type="submit" class="nav-link btn btn-link">Logout</button>
         </form>
     </li>

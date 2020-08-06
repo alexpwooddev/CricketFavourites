@@ -80,7 +80,6 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\s
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.dll
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.pdb
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.genruntimeconfig.cache
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\List.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NewsItem.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_FavouritePlayer.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Search.cshtml.g.cs
@@ -91,12 +90,12 @@ C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\C
 C:\Users\Alexander Wood\source\repos\CricketFavourites\bin\Debug\netcoreapp3.1\RestSharp.dll
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\About.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Page\Contact.cshtml.g.cs
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Compare.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\News\NewsList.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\FavouritesDropDownMenu\Default.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\CricketFavourites.csprojAssemblyReference.cache
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\ShowPlayerStats.cshtml.g.cs
-C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\CompareStats.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CompareFavouritesDropdown1\Default.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CompareFavouritesDropdown2\Default.cshtml.g.cs
 C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\FileUpload\Index.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\ListFavourites.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\FavouriteStatistics\CompareStats.cshtml.g.cs
+C:\Users\Alexander Wood\source\repos\CricketFavourites\obj\Debug\netcoreapp3.1\Razor\Views\FavouriteStatistics\ShowPlayerStats.cshtml.g.cs

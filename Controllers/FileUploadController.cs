@@ -56,7 +56,7 @@ namespace CricketFavourites.Controllers
         {
             _fileRepository.SavePlayerImage(files, favouriteId);
             TempData["Message"] = "File successfully uploaded";
-            return RedirectToAction("List", "Favourite");
+            return RedirectToAction("ListFavourites", "Favourite");
         }
     }
 }

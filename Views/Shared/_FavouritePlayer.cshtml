@@ -38,12 +38,13 @@
         </p>
         <p class="btn">
             <a class="btn btn-primary"
+               asp-controller="FavouriteStatistics"
                asp-action="ShowPlayerStats"
                asp-route-pid="@Model.Key.pid">Show stats</a>
         </p>
         <p class="btn">
             <a class="btn btn-primary"
-               asp-controller="Favourite"
+               asp-controller="FavouriteStatistics"
                asp-action="CompareStats"
                asp-route-pid1="@Model.Key.pid">Compare stats with other favourites</a>
         </p>

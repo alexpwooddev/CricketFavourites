@@ -13,7 +13,7 @@
         @foreach (Favourite fav in Model)
         {
             <a class="dropdown-item"
-               asp-controller="Favourite"
+               asp-controller="FavouriteStatistics"
                asp-action="CompareWithPlayerSelected"
                asp-route-pid2="@fav.Pid">@fav.Name</a>
         }

@@ -73,7 +73,7 @@ namespace CricketFavourites
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Favourite}/{action=List}/{id?}");
+                    pattern: "{controller=Favourite}/{action=ListFavourites}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
