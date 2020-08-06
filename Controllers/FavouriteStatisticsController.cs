@@ -46,7 +46,6 @@ namespace CricketFavourites.Controllers
             bool Player1JustChosenPlayer2NotChosen = pid1 != 0 && pid2 == 0 && (!TempData.ContainsKey("pid2Chosen") || TempData["pid2Chosen"].ToString() == "no");
             bool Player2JustChosenPlayer1NotChosen = pid1 == 0 && pid2 != 0 && (!TempData.ContainsKey("pid1Chosen") || TempData["pid1Chosen"].ToString() == "no");
             bool Player2JustChosenAfterAnyPreviousSelection = TempData.ContainsKey("pid1Chosen") && TempData["pid1Chosen"].ToString() != "no" && pid2 != 0;
-            bool Player1JustChosenAfterAnyPreviousSelection = TempData.ContainsKey("pid2Chosen") && TempData["pid2Chosen"].ToString() != "no" && pid1 != 0;
 
             if (Player1JustChosenPlayer2NotChosen)
             {

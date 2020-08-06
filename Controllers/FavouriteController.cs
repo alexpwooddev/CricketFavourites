@@ -30,7 +30,6 @@ namespace CricketFavourites.Controllers
 
         public async Task<IActionResult> ListFavourites()
         {
-            //get all favourite objects for current user
             var currentFavourites = _favouriteRepository.GetCurrentUserFavourites();
             Dictionary<PlayerInfo, FileModel> combinedPlayerAndImage = new Dictionary<PlayerInfo, FileModel>();
             PlayerInfo currentFavouriteInfo = new PlayerInfo();
@@ -79,7 +78,6 @@ namespace CricketFavourites.Controllers
 
         public IActionResult AddFavouritePlayer(string fullName, string name, int pid)
         {
-            //check if this user has already favourited this player and return a message if so
             if (_favouriteRepository.HasBeenFavouritedAlready(pid))
             {
                 TempData["alreadyFavouritedMessage"] = "You have already favourited this player!";
