@@ -9,29 +9,35 @@ a.navbar-brand {
     word-break: normal;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-    color: #0366d6;
+
+
+.navbar {
+    background-color: #3fa0ef;
+    color: black;
+    margin-bottom: 50px!important;
 }
 
-
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
+    color: black;
+    background-color: #1a74e2;
     border-color: #1861ac;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #EEE2DC;
+    color: #2c2f31;
     padding: 15px;
 }
-
+.navbar-dark .navbar-brand {
+    color: #2c2f31;
+    font-weight: 700;
+}
 
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
     font-size: 14px;
+    color: white;
 }
 
 @media (min-width: 768px) {
@@ -65,14 +71,22 @@ html {
 }
 
 body {
-    background-image: url(/images/floor-tile.png);
-    background-repeat: repeat;
+    background-image: url(/images/black4Small.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     margin-bottom: 60px;
     font-family: Arial, Helvetica, sans-serif;
-    min-width: inherit
+    color: white;
+    min-width: inherit;
 }
 
-
+@media screen and (min-width: 768px) {
+    body {
+        background-image: url(/images/black4.jpg);
+    }  
+}
 
 
 .footer {
@@ -121,7 +135,7 @@ body {
 }
 
 .card p {
-    color: #BAB2B5;
+    color: #fff;
 }
 
 .card:hover {
@@ -133,51 +147,60 @@ body {
 }
 
 h1 {
-    color: #123C69;
+    color: #fff;
     text-align: center;
     margin-bottom: 20px;
 }
 
 h2 {
-    color: #AC3B61;
+    color: #fff;
 }
 
 h4 {
-    color: #123C69;
+    color: #fff;
 }
 
 p {
-    color: #123C69;
+    color: #fff;
 }
 
 
 #searchBar {
     max-width: 60vw;
-    margin: auto
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 
 .btn-primary {
     color: #fff;
-    background-color: #AC3B61;
-    border-color: #9A1750;
+    background-color: #1a74e2;
+    border-color: black;
 }
 
 
     .btn-primary:hover {
-        background-color: #9A1750;
+        background-color: #fff;
+        color: #1a74e2;
         border-color: #FFF;
     }
 
-.btn-danger {
-    color: #AC3B61;
+.btn-danger:not(:disabled):not(.disabled):active, .show > .btn-danger.dropdown-toggle {
     background-color: #fff;
-    border-color: #1861ac;
+    color: #1a74e2;
+    border-color: #FFF;
+}
+
+    .btn-danger {
+    color: #fff;
+    background-color: black;
+    border-color: black;
 }
 
     .btn-danger:hover {
-        color: #fff;
-        background-color: #AC3B61;
+        color: black;
+        background-color: #fff;
     }
 
 .table-dark {
@@ -196,7 +219,7 @@ p {
     }
 
     .newsCard p {
-        color: #BAB2B5;
+        color: #fff;
         font-weight: bold;
     }
 
