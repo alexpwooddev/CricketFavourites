@@ -26,7 +26,7 @@
 @if (Model.CombinedPlayersAndImages.Count() > 0)
 {
     <h1>Your favourite players:</h1>
-    <div class="containerflex">
+    <div class="containerflex favourites-container">
         @foreach (KeyValuePair<PlayerInfo, FileModel> entry in Model.CombinedPlayersAndImages)
         {
             <partial name="_FavouritePlayer" model="entry" />
@@ -37,3 +37,5 @@ else
 {
     <div class="alert alert-info text-center">You don't have any favourites yet. Do a search above and add some!</div>
 }
+
+
