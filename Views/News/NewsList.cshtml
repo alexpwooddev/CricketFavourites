@@ -28,7 +28,7 @@ else
     <br />
     @foreach (var item in Model.items)
     {
-        <div class="newsCard">
+        <div class="newsCard slide-in">
             <h2>@item.name</h2>
             <p>@item.description</p>
             <p><a href="@item.url">@item.url</a></p>
@@ -37,3 +37,58 @@ else
 }
 
 
+<script type="text/javascript">
+    function debounce(func, wait = 20, immediate = true) {
+        var timeout;
+        return function () {
+            var context = this, args = arguments;
+            var later = function () {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    const newsCards = document.querySelectorAll('.newsCard');
+
+    //when page loads, need to check if a newsCard is already in view and if so, change its style to active
+    function checkInitialView() {
+        newsCards.forEach(newsCard => {
+            const slideInAt = (window.scrollY + window.innerHeight) - newsCard.offsetHeight / 7;
+            const isHalfShown = slideInAt > newsCard.offsetTop;
+            if (isHalfShown) {
+                newsCard.classList.add('active');
+            }
+        });
+    }
+
+    function checkSlide(e) {
+        newsCards.forEach(newsCard => {
+            const slideInAt = (window.scrollY + window.innerHeight) - newsCard.offsetHeight / 7;
+            const cardBottom = newsCard.offsetTop + newsCard.offsetHeight;
+            const isHalfShown = slideInAt > newsCard.offsetTop;
+            const isNotScrolledPast = window.scrollY < cardBottom;
+
+            if (isHalfShown && isNotScrolledPast) {
+                newsCard.classList.add('active');
+            } else {
+                newsCard.classList.remove('active');
+            }
+        });
+    }
+
+    window.addEventListener('load', checkInitialView);
+    window.addEventListener('scroll', debounce(checkSlide));
+
+
+
+
+
+
+
+
+</script>

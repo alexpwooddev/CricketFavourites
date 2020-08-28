@@ -8,7 +8,9 @@
 .navbar {
     background-color: #3fa0ef;
     color: black;
-    margin-bottom: 50px!important;
+    margin-bottom: 50px !important;
+    box-shadow: 0 1px 4px 0 #F0F7F4;
+}
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -240,6 +242,17 @@ p {
         font-weight: bold;
     }
 
+
+.slide-in {
+    opacity: 0;
+    transition: all .5s;
+    transform: translateX(-30%) scale(0.95);
+}
+
+.slide-in.active {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+}
 
 .flex-grid {
     display: flex
