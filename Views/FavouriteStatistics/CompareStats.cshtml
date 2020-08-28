@@ -743,3 +743,23 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
 
 </div>
+
+
+<audio src="/sounds/batHitBall.wav"></audio>
+
+<script type="text/javascript">
+    const dropdowns = document.querySelectorAll('.dropdown-item');
+
+
+    function playSound(e) {
+        const audio = document.querySelector('audio');
+        if (!audio) return;
+
+        audio.currentTime = 0;
+        audio.play();
+    }
+
+    dropdowns.forEach(dropdown => dropdown.addEventListener('mouseup', playSound));
+
+
+</script>
