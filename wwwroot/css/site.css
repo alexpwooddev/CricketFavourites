@@ -103,6 +103,7 @@ body {
 
 .card-img-top {
     height: 30vh;
+    max-width: 300px;
 }
 
 .card-buttons-container {
@@ -126,7 +127,10 @@ body {
     margin: 5px;
     padding: 15px;
     flex: 0 0 90%;
+    max-width: 300px;
     min-width: 300px;
+    justify-content: center;
+    display: flex;
 }
 
 

@@ -1,7 +1,7 @@
 ﻿@model KeyValuePair<PlayerInfo, FileModel>
 
 
-<div class="card h-25 d-inline-flex">
+<div class="card h-25">
     @if (Model.Value != null)
     {
         var base64 = Convert.ToBase64String(Model.Value.Data);
