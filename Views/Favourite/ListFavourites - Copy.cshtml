@@ -1,0 +1,41 @@
+﻿@model FavouritesViewModel
+
+<div class="searchBarLabelContainer">
+    <div class="searchBarLabel">
+        <h4>Search for players to add to your favourites:</h4>
+    </div>
+</div>
+<form asp-action="SearchWithQuery" method="post" id="searchBar">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" name="query" class="form-control" />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+@if (TempData.ContainsKey("alreadyFavouritedMessage"))
+{
+    <div class="alert alert-info text-center">@TempData["alreadyFavouritedMessage"]</div>
+}
+
+@if (Model.CombinedPlayersAndImages.Count() > 0)
+{
+    <h1>Your favourite players:</h1>
+    <div class="containerflex favourites-container">
+        @foreach (KeyValuePair<PlayerInfo, FileModel> entry in Model.CombinedPlayersAndImages)
+        {
+            <partial name="_FavouritePlayer" model="entry" />
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-info text-center">You don't have any favourites yet. Do a search above and add some!</div>
+}
+
+

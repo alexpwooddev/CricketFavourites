@@ -4,7 +4,6 @@
     word-break: normal;
 }
 
-
 .navbar {
     background-color: #3fa0ef;
     color: black;
@@ -29,11 +28,14 @@
 }
 
 
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     font-size: 14px;
     color: white;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 @media (min-width: 768px) {
@@ -128,15 +130,17 @@ body {
     border-radius: 5px;
     margin: 5px;
     padding: 15px;
-    flex: 0 0 90%;
-    max-width: 300px;
+/*    flex: 0 0 90%;
+*/  max-width: 300px;
     min-width: 300px;
     justify-content: center;
     display: flex;
 }
+/*width: 200px;
+height: calc(100% - 40px);*/
 
 
-@media (min-width: 605px) {
+/*@media (min-width: 605px) {
     .card {
         flex: 0 0 40%;
     }
@@ -146,7 +150,7 @@ body {
     .card {
         flex: 0 0 28%;
     }
-}
+}*/
 
 .card h3 {
     color: #fff;
@@ -282,4 +286,34 @@ p {
 
 .controls {
     margin-bottom: 50px;
+}
+
+
+.scroll-items {
+    height: 800px;
+    padding: 100px;
+    width: 100%;
+    border: 1px solid white;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    will-change: transform;
+    position: relative;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+}
+
+.scroll-items.active {
+    background: rgba(255,255,255,0.3);
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1);
+}
+
+.scroll-instruction {
+    text-align: center;
 }

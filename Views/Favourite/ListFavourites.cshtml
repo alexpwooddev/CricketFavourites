@@ -26,7 +26,8 @@
 @if (Model.CombinedPlayersAndImages.Count() > 0)
 {
     <h1>Your favourite players:</h1>
-    <div class="containerflex favourites-container">
+    <p class="scroll-instruction">(scroll left and right to browse)</p>
+    <div class="scroll-items">
         @foreach (KeyValuePair<PlayerInfo, FileModel> entry in Model.CombinedPlayersAndImages)
         {
             <partial name="_FavouritePlayer" model="entry" />
@@ -38,4 +39,37 @@ else
     <div class="alert alert-info text-center">You don't have any favourites yet. Do a search above and add some!</div>
 }
 
+<script type="text/javascript">
+    const slider = document.querySelector('.scroll-items');
+    const cardImage = document.querySelector('.card-img-top');
+    const noImageButtons = document.querySelectorAll('.no-image-button');
+    noImageButtons.forEach(button => button.style.height = cardImage.offsetHeight + 'px');
+    slider.scrollLeft = 100;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
+    function handleMouseDown(e) {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        console.log(startX);
+        scrollLeft = slider.scrollLeft;
+    }
+    function handleMouseUpOrLeave() {
+        isDown = false;
+        slider.classList.remove('active');
+    }
+    function handleMouseMove(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = x - startX;
+        slider.scrollLeft = scrollLeft - walk;
+    }
+    slider.addEventListener('mousedown', handleMouseDown);
+    slider.addEventListener('mouseleave', handleMouseUpOrLeave);
+    slider.addEventListener('mouseup', handleMouseUpOrLeave);
+    slider.addEventListener('mousemove', handleMouseMove);
+
+</script>
